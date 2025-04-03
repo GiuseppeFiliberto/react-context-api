@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <PostsContext >
+      <PostsContext.Provider value={{ posts: posts }} >
         <BrowserRouter>
           <Routes>
             <Route Component={DefaultLayout}>
@@ -33,7 +33,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-      </PostsContext>
+      </PostsContext.Provider>
 
     </>
   )

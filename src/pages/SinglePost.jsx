@@ -1,19 +1,21 @@
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export default function SinglePost() {
     const { id } = useParams();
 
-    const posts = [
-        { id: 1, title: "Post One", textBody: "This is the body of post one." },
-        { id: 2, title: "Post Two", textBody: "This is the body of post two." },
-        { id: 3, title: "Post Three", textBody: "This is the body of post three." },
-        { id: 4, title: "Post Four", textBody: "This is the body of post four." },
-        { id: 5, title: "Post Five", textBody: "This is the body of post five." },
-        { id: 6, title: "Post Six", textBody: "This is the body of post six." },
-    ];
+    const [post, setPost] = useState([]);
 
-    const post = posts.find((post) => post.id === parseInt(id));
+    useEffect(() => {
+        fetch(`https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts/${id}`)
+            .then((response) => response.json())
+            .then((data) => setPost(data))
+            .catch((error) => console.error('Error fetching posts:', error));
+    }, []);
+
+
+    // const post = posts.find((post) => post.id === parseInt(id));
 
     const navigate = useNavigate()
 
@@ -23,7 +25,7 @@ export default function SinglePost() {
                 <div className="container min-vh-100">
                     <div className="card-body p-5">
                         <h1 className="card-title fw-bold mb-5">{post.title}</h1>
-                        <p className="card-text fw-bold">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cupiditate, autem dicta eligendi minus animi consequuntur aspernatur accusamus nisi at sit impedit voluptate minima tempore porro! Ullam officia fugit aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam nostrum distinctio sit, illo repudiandae quaerat illum necessitatibus, consequatur velit exercitationem tempora aliquam ratione, itaque id porro nemo a fugit tempore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas molestias ducimus labore aperiam ratione! Quaerat illum aspernatur magnam expedita blanditiis possimus tempora deleniti quibusdam placeat dicta doloribus quae delectus sed quam veritatis, sunt aliquam eaque laudantium, dolorem, voluptates quas. Quidem minus dolores fugiat perspiciatis blanditiis. Illo provident saepe nesciunt quibusdam soluta. Voluptas neque nemo, vitae nesciunt quaerat quod mollitia magnam quasi molestiae nisi temporibus doloremque facilis atque sed, cupiditate in iure. Amet sit, fugit sunt tempore distinctio recusandae porro molestias! Vero, dolores. Nam, temporibus voluptas. Veritatis delectus aliquam facere atque error. Consequuntur, quia exercitationem! Aliquid ut nisi qui tempore dicta.</p>
+                        <p className="card-text fw-bold">{post.body}</p>
 
                         <div className="bts d-flex justify-content-between">
                             <button
