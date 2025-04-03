@@ -1,16 +1,8 @@
-import { Link } from 'react-router-dom'
 import PostsCard from '../components/posts/PostsCard'
 
 export default function posts() {
 
-    // const posts = [
-    //     { id: 1, title: "Post One", textBody: "This is the body of post one." },
-    //     { id: 2, title: "Post Two", textBody: "This is the body of post two." },
-    //     { id: 3, title: "Post Three", textBody: "This is the body of post three." },
-    //     { id: 4, title: "Post Four", textBody: "This is the body of post four." },
-    //     { id: 5, title: "Post Five", textBody: "This is the body of post five." },
-    //     { id: 6, title: "Post Six", textBody: "This is the body of post six." },
-    // ];
+
 
 
 
