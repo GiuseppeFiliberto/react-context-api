@@ -24,7 +24,7 @@ export default function SinglePost() {
             <main>
                 <div className="container min-vh-100">
                     <div className="card-body p-5">
-                        <h1 className="card-title fw-bold mb-5">{post.title}</h1>
+                        <h1 className="card-title fw-bold mb-5">{post.title.toUpperCase()}</h1>
                         <p className="card-text fw-bold">{post.body}</p>
 
                         <div className="bts d-flex justify-content-between">

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PostsContext from './contexts/PostsContext'
 import DefaultLayout from './layouts/DefaultLayout'
 import Home from './pages/Home'
-import Posts from './pages/Posts/PostsPage'
+import Posts from './pages/PostsPage'
 import SinglePost from './pages/SinglePost'
 import About from './pages/About'
 
